@@ -17,6 +17,19 @@ spec:
       containers:
       - name: udagram-api-feed
         image: gepl/udagram-api-feed
+        env:
+        - name: POSTGRES_USERNAME
+          value: "$(POSTGRES_USERNAME)"
+        - name: POSTGRES_PASSWORD
+          value: "$(POSTGRES_PASSWORD)"
+        - name: POSTGRES_HOST
+          value: "$(POSTGRES_HOST)"
+        - name: POSTGRES_DB
+          value: "$(POSTGRES_DB)"
+        - name: AWS_BUCKET
+          value: "$(AWS_BUCKET)"
+        - name: JWT_SECRET
+          value: "$(JWT_SECRET)"
         imagePullPolicy: "Always"
         ports:
         - containerPort: 8080
